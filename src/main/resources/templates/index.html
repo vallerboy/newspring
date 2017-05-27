@@ -10,11 +10,19 @@
     <p th:text="${someString == 'a'} ? 'Jest po 16' : 'Jest przed 16' "></p>
 
     <form action="#" th:action="@{/data}" method="post">
-        <p><input type="text" th:name="name"/>
+        <p>Imię: <input type="text" th:name="name"/>
+        <p>Nazwisko: <input type="text" th:name="lastname"/>
+        <p>Wiek: <input type="text" th:name="age"/>
         <p><input type="submit" value="Wyślij">
     </form>
 
 </center>
+
+<!--<p th:swich="${zmiennaDoSwitcha}">-->
+<!--<p th:case="oskar"> asd </p>-->
+<!--<p th:case="asdasdasd"> asasdasdd </p>-->
+<!--<p th:case="*"> cokolwiek innego </p>-->
+<!--</p>-->
 
 </body>
 </html>
