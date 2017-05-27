@@ -7,7 +7,12 @@
 <body>
 <center>
     <h1>Witaj świecie, jestem templatką!</h1>
-    <p th:text="${someString}"></p>
+    <p th:text="${someString == 'a'} ? 'Jest po 16' : 'Jest przed 16' "></p>
+
+    <form action="#" th:action="@{/data}" method="post">
+        <p><input type="text" th:name="name"/>
+        <p><input type="submit" value="Wyślij">
+    </form>
 
 </center>
 
