@@ -42,6 +42,11 @@ public class MainController {
         return name + " " + lastname + " jest " + ((age >= 18) ? "pełnoletni" : "niepełnoletni");
     }
 
+    @RequestMapping(value = "/newform", method = RequestMethod.GET)
+    public String newform(Model model) {
+        model.addAttribute("personObject", new Person());
+        return "form";
+    }
 
     private void testBuilder() {
         Person person = new Person.Builder("Oskar")
@@ -50,7 +55,7 @@ public class MainController {
                 .lastname("Polak")
                 .number("788-232-123")
                 .build();
-        
+
         person.getAge();
     }
 
