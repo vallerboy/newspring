@@ -1,13 +1,12 @@
 package pl.oskarpolak.newspring.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pl.oskarpolak.newspring.models.SimpleBean;
+import pl.oskarpolak.newspring.models.Person;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -16,8 +15,6 @@ import java.time.ZonedDateTime;
 @Controller
 public class MainController {
 
-    @Autowired
-    SimpleBean simpleBean;
 
    // Logger logger = Logger.getLogger(MainController.class);
 
@@ -44,6 +41,21 @@ public class MainController {
                        @RequestParam(value = "age") int age){
         return name + " " + lastname + " jest " + ((age >= 18) ? "pełnoletni" : "niepełnoletni");
     }
+
+
+    private void testBuilder() {
+        Person person = new Person.Builder("Oskar")
+                .age(27)
+                .email("oskarpolak@cos.pl")
+                .lastname("Polak")
+                .number("788-232-123")
+                .build();
+        
+        person.getAge();
+    }
+
+
+
 
 
 
