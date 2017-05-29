@@ -48,6 +48,14 @@ public class MainController {
         return "form";
     }
 
+    @RequestMapping(value = "/newform", method = RequestMethod.POST)
+    @ResponseBody
+    public String newformPost(Person person){
+        return "Przyszła klasa: " + person.getName();
+    }
+
+    // Testujemy jak działa wzorzec builder ;)
+    // Nie ma wpływu na działanie springa
     private void testBuilder() {
         Person person = new Person.Builder("Oskar")
                 .age(27)
