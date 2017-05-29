@@ -19,7 +19,6 @@ public class Person {
     @Max(value = 25)
     @Min(value = 3)
     private String lastname;
-    @NotEmpty
     private int age;
     @NotEmpty
     @Pattern(regexp = "[0-9]{3}-[0-9]{3}-[0-9]{3}")
