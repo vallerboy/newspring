@@ -2,12 +2,14 @@ package pl.oskarpolak.newspring.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.oskarpolak.newspring.models.Person;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -49,9 +51,12 @@ public class MainController {
     }
 
     @RequestMapping(value = "/newform", method = RequestMethod.POST)
-    @ResponseBody
-    public String newformPost(Person person){
-        return "Przyszła klasa: " + person.getName();
+    public String newformPost(@Valid Person person, BindingResult result){
+        if(result.hasErrors()){
+            return "form";
+        }
+
+        return "result";
     }
 
     // Testujemy jak działa wzorzec builder ;)
