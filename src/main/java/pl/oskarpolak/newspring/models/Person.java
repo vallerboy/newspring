@@ -2,23 +2,25 @@ package pl.oskarpolak.newspring.models;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * Created by OskarPraca on 2017-05-29.
  */
 public class Person {
     @NotEmpty
-    @Max(value = 25)
-    @Min(value = 3)
+    @Size(min = 3, max = 25)
     private String name;
     @NotEmpty
     @Max(value = 25)
     @Min(value = 3)
     private String lastname;
+    @Range(max = 150, min = 18)
     private int age;
     @NotEmpty
     @Pattern(regexp = "[0-9]{3}-[0-9]{3}-[0-9]{3}")
