@@ -6,6 +6,7 @@
 </head>
 <body>
     <center>
+        <h1><p th:text="#{welcome}"></p></h1>
         <form action="#" th:action="@{/newform}" th:object="${personObject}" method="post">
             <p>Imię: <input type="text" th:field="*{name}">
                  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error ex.</span>
